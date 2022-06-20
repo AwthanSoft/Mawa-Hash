@@ -22,6 +22,20 @@ namespace Mawa.Hash
         {
             return BitConverter.ToString(algorithm.ComputeHash(stream)).Replace("-", string.Empty);
         }
+        public static string GetHash(string filePath, HashAlgorithm algorithm, FileShare fileShare)
+        {
+            using (var fil = File.Open(filePath, FileMode.Open, FileAccess.Read, fileShare))
+            {
+                using (var stream = new BufferedStream(fil, 100000))
+                {
+                    var hash = GetHash(stream, algorithm);
+                    stream.Close();
+                    return hash;
+                    //return BitConverter.ToString(algorithm.ComputeHash(stream)).Replace("-", string.Empty);
+                }
+                fil.Close();
+            }
+        }
         public static string GetHash(string filePath, HashAlgorithm algorithm)
         {
             using (var stream = new BufferedStream(File.OpenRead(filePath), 100000))
