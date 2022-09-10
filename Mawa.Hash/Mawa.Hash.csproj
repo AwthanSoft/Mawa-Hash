@@ -2,6 +2,14 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Copyright>© 2021-2022 AwthanSoft</Copyright>
+    <RepositoryUrl>https://github.com/AwthanSoft/Mawa-Hash</RepositoryUrl>
+    <RepositoryType>github</RepositoryType>
+    <Authors>AwthanSoft</Authors>
+    <Version>22.9.7</Version>
+    <Product>Mawa String &amp; Files Hash Algorahtems</Product>
+    <AssemblyVersion>22.9.7.1</AssemblyVersion>
+    <FileVersion>22.9.7.1</FileVersion>
   </PropertyGroup>
 
 </Project>
