@@ -5,6 +5,7 @@ using System.Text;
 
 namespace Mawa.Hash
 {
+
     public class ComputeHash
     {
         public static class Algorithms
@@ -18,10 +19,13 @@ namespace Mawa.Hash
         }
 
         #region Hash
+
+
         public static string GetHash(Stream stream, HashAlgorithm algorithm)
         {
             return BitConverter.ToString(algorithm.ComputeHash(stream)).Replace("-", string.Empty);
         }
+
         public static string GetHash(string filePath, HashAlgorithm algorithm, FileShare fileShare)
         {
             using (var fil = File.Open(filePath, FileMode.Open, FileAccess.Read, fileShare))
@@ -78,6 +82,16 @@ namespace Mawa.Hash
         #endregion
 
         #region MD5
+
+        /// <summary>
+        /// Gget MD5 for stream data
+        /// </summary>
+        /// <param name="stream">data as stream</param>
+        /// <returns>MD5 Hash</returns>
+        public static string GetHash_MD5(Stream stream)
+        {
+            return GetHash(stream, Algorithms.MD5);
+        }
 
         public static string GetHashFromText_MD5(string txt)
         {
